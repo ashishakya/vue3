@@ -1,5 +1,3 @@
-# vue3
-
 ## Project setup
 ```
 yarn install
@@ -20,5 +18,7 @@ yarn build
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### References
+- [Configuration Reference](https://cli.vuejs.org/config/).
+- [Vue 3 Course](https://www.youtube.com/watch?v=e-E0UB-YDRk&t=8249s&ab_channel=Bitfumes)
+- [Tailwind Css](https://tailwindcss.com/)
