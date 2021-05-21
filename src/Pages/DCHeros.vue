@@ -53,6 +53,9 @@ export default {
       this.dcHeros.splice(id, 1)
     }
   },
+  mounted() {
+    this.$refs.input.focus()
+  },
   computed: {
     herosCount() {
       return this.dcHeros.length;

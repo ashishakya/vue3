@@ -3,7 +3,7 @@
     <h1 class="w-full text-center text-3xl my-4">Markdown App</h1>
     <section class="flex m-auto w-10/12 h-screen">
       <article class="w-1/2 border">
-        <textarea class="w-full h-full" :value="text" @input="handleUpdate"></textarea>
+        <textarea class="w-full h-full" ref="text" :value="text" @input="handleUpdate"></textarea>
       </article>
       <article class="w-1/2 border bg-gray-100" v-html="markedText"/>
     </section>
@@ -36,9 +36,9 @@ export default {
   // unmounted() {
   //   console.log("unmounted")
   // },
-  // mounted() {
-  //   console.log("mounted")
-  // },
+  mounted() {
+    this.$refs.text.focus()
+  },
   name: "MarkDown",
   mixins: [debounce],
   data() {
