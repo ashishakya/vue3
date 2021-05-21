@@ -12,6 +12,7 @@ export default {
         {to:"dc-heros", title: "DC HEROS"},
         {to:"calender", title: "CALENDER"},
         {to:"markdown", title: "MARK DOWN"},
+        {to:"slider", title: "SLIDER CAROUSEL"},
       ]
     }
   }
