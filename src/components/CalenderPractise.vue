@@ -43,6 +43,7 @@ export default {
       selectedDate: (new Date().toLocaleDateString()),
     }
   },
+  props: ['modelValue'],
   computed: {
     startDayOfMonth() {
       return new Date(this.currentYear, this.currentMonth, 1).getDay()
@@ -85,6 +86,26 @@ export default {
       this.currentMonth = new Date().getMonth();
       this.currentDay = new Date().getDay();
       this.selectedDate = new Date().toLocaleDateString()
+    }
+  },
+  watch: {
+    selectedDate: {
+      handler(selectedDate) {
+        this.$emit('update:modelValue', selectedDate)
+      },
+      immediate: true
+    },
+    modelValue: {
+      handler(selectedDate) {
+        if (selectedDate) {
+          const date = new Date(selectedDate);
+          this.selectedDate = date.toLocaleDateString()
+          this.currentYear = date.getFullYear();
+          this.currentMonth = date.getMonth();
+          this.currentDay = date.getDay();
+        }
+      },
+      immediate: true
     }
   }
 }

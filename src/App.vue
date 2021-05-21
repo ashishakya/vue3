@@ -1,7 +1,8 @@
 <template>
   <AppHeader/>
+  DOB: {{ dob }}
   <div class="w-full flex">
-    <CalenderPractise/>
+    <CalenderPractise v-model="dob"/>
 <!--    <Calender/>-->
 <!--    <DCHeros/>-->
   </div>
@@ -14,6 +15,12 @@ import AppHeader from "./components/AppHeader";
 import CalenderPractise from "./components/CalenderPractise";
 
 export default {
+  data(){
+    return {
+      dob:'6/21/2021'
+      // dob:null
+    }
+  },
   components:{
     // DCHeros,
     AppHeader,
