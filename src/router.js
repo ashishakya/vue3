@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import DCHeros from "./Pages/DCHeros";
 import Calender from "./Pages/Calender";
 import Home from "./Pages/Home";
+import Markdown from "./Pages/Markdown";
 
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
         path: '/calender',
         name: 'calender',
         component: Calender,
+    },
+    {
+        path: '/markdown',
+        name: 'markdown',
+        component: Markdown,
     },
 ];
 
