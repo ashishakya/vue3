@@ -2,11 +2,13 @@
   <AppHeader @login="showLoginModal=true"/>
   <div class="w-full flex">
     <router-view/>
-<!--    <CalenderPractise v-model="dob"/>-->
-<!--    <Calender/>-->
-<!--    <DCHeros/>-->
+    <!--    <CalenderPractise v-model="dob"/>-->
+    <!--    <Calender/>-->
+    <!--    <DCHeros/>-->
   </div>
-  <LoginModal v-if="showLoginModal" @close="showLoginModal=false"/>
+  <teleport to="body">
+    <LoginModal v-if="showLoginModal" @close="showLoginModal=false"/>
+  </teleport>
 </template>
 
 <script>
@@ -16,28 +18,29 @@ import LoginModal from "./components/LoginModal";
 // import Calender from "./components/Calender";
 // import CalenderPractise from "./components/CalenderPractise";
 import firebase from "./utilities/firebase";
+
 export default {
-  data(){
+  data() {
     return {
-      showLoginModal:false,
-      dob:'6/21/2021',
-      isLoggedIn:false,
-      authUser:{}
+      showLoginModal: false,
+      dob: '6/21/2021',
+      isLoggedIn: false,
+      authUser: {}
       // dob:null
     }
   },
   mounted() {
-    firebase.auth().onAuthStateChanged((user)=> {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.isLoggedIn=true
+        this.isLoggedIn = true
         this.authUser = user
       } else {
-        this.isLoggedIn= false
+        this.isLoggedIn = false
         this.authUser = {}
       }
     });
   },
-  components:{
+  components: {
     // DCHeros,
     AppHeader,
     LoginModal
