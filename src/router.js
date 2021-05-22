@@ -4,6 +4,7 @@ import Calender from "./Pages/Calender";
 import Home from "./Pages/Home";
 import Markdown from "./Pages/Markdown";
 import Slider from "./Pages/Slider";
+import Calculator from "./Pages/Calculator";
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/slider',
         name: 'slider',
         component: Slider,
+    },
+    {
+        path: '/calculator',
+        name: 'calculator',
+        component: Calculator,
     },
 ];
 
