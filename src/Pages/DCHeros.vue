@@ -24,42 +24,77 @@
 </template>
 
 <script>
+import {computed, onMounted, ref} from "vue"
+
 export default {
-  data() {
-    return {
-      isDisabled: true,
-      heroName: "",
-      dcHeros: [
-        {name: "Super Girl"},
-        {name: "Flash"},
-        {name: "Batman"},
-        {name: "Arrow"},
-        {name: "SuperMan"},
-      ]
+  setup() {
+    let input = ref("");
+    let heroName = ref("");
+    let dcHeros = ref([
+      {name: "Super Girl"},
+      {name: "Flash"},
+      {name: "Batman"},
+      {name: "Arrow"},
+      {name: "SuperMan"},
+    ]);
+
+    function handleRemove(id) {
+      dcHeros.value.splice(id, 1)
     }
-  },
-  methods: {
-    handleSubmit() {
-      if (this.heroName) {
-        this.dcHeros.unshift({name: this.heroName});
-        this.heroName = null
-        this.$refs.input.focus()
+
+    function handleSubmit() {
+      if (heroName.value) {
+        dcHeros.value.unshift({name: heroName.value});
+        heroName.value = null
+        // this.$refs.input.focus()
       }
-    },
+    }
+
+    onMounted(() => {
+      input.value.focus()
+    })
+
+    const herosCount = computed({
+      get:()=>dcHeros.value.length
+    })
+
+    return { dcHeros, heroName, handleRemove, handleSubmit, input, herosCount }
+  },
+  // data() {
+  //   return {
+  //     isDisabled: true,
+  //     heroName: "",
+  //     dcHeros: [
+  //       {name: "Super Girl"},
+  //       {name: "Flash"},
+  //       {name: "Batman"},
+  //       {name: "Arrow"},
+  //       {name: "SuperMan"},
+  //     ]
+  //   }
+  // },
+  methods: {
+    // handleSubmit() {
+    //   if (this.heroName) {
+    //     this.dcHeros.unshift({name: this.heroName});
+    //     this.heroName = null
+    //     this.$refs.input.focus()
+    //   }
+    // },
     randM() {
       return Math.random()
     },
-    handleRemove(id) {
-      this.dcHeros.splice(id, 1)
-    }
+    // handleRemove(id) {
+    //   this.dcHeros.splice(id, 1)
+    // }
   },
-  mounted() {
-    this.$refs.input.focus()
-  },
+  // mounted() {
+  //   this.$refs.input.focus()
+  // },
   computed: {
-    herosCount() {
-      return this.dcHeros.length;
-    },
+    // herosCount() {
+    //   return this.dcHeros.length;
+    // },
     randC() {
       return Math.random()
     }
