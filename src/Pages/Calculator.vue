@@ -30,7 +30,9 @@
   </section>
 </template>
 <script>
-import {onBeforeUnmount, onMounted, ref} from "vue"
+// import {onBeforeUnmount, onMounted, ref} from "vue"
+import {ref} from "vue"
+import useWindowEvent from "../utilities/composition/useWindowEvent";
 
 export default {
   setup() {
@@ -89,9 +91,11 @@ export default {
 
     const handleKeyDown = e =>handleClick(e.key)
 
-    onMounted(()=>window.addEventListener("keydown", handleKeyDown))
+    useWindowEvent("keydown", handleKeyDown)
 
-    onBeforeUnmount(()=>window.removeEventListener("keydown", handleKeyDown))
+    // onMounted(()=>window.addEventListener("keydown", handleKeyDown))
+    //
+    // onBeforeUnmount(()=>window.removeEventListener("keydown", handleKeyDown))
 
     return {currentNumber, handleClick, selectedOperation, previousNumber}
   }

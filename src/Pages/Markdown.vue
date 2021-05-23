@@ -12,7 +12,8 @@
 
 <script>
 import marked from "marked"
-import debounce from "../utilities/mixins/debounce"
+// import debounce from "../utilities/mixins/debounce"
+import useDebounce from "../utilities/composition/useDebounce";
 
 export default {
   // beforeCreate() {
@@ -37,13 +38,16 @@ export default {
   //   console.log("unmounted")
   // },
   mounted() {
+    const {debounce} = useDebounce();
+    this.debounce = debounce;
     this.$refs.text.focus()
   },
   name: "MarkDown",
-  mixins: [debounce],
+  // mixins: [debounce],
   data() {
     return {
       text: "",
+      debounce: "",
     }
   },
   computed: {
