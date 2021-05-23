@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Markdown from "./Pages/Markdown";
 import Slider from "./Pages/Slider";
 import Calculator from "./Pages/Calculator";
+import ReusableModal from "./Pages/ReusableModal";
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: '/calculator',
         name: 'calculator',
         component: Calculator,
+    },
+    {
+        path: '/reusable-modal',
+        name: 'reusable-modal',
+        component: ReusableModal,
     },
 ];
 
