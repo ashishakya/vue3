@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import 'firebase/database';
 
 const firebaseConfig = {
     databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
