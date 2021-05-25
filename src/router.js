@@ -6,6 +6,7 @@ import Markdown from "./Pages/Markdown";
 import Slider from "./Pages/Slider";
 import Calculator from "./Pages/Calculator";
 import ReusableModal from "./Pages/ReusableModal";
+import ChatApp from "./Pages/ChatApp";
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/reusable-modal',
         name: 'reusable-modal',
         component: ReusableModal,
+    },
+    {
+        path: '/chat-app',
+        name: 'chat-app',
+        component: ChatApp,
     },
 ];
 
