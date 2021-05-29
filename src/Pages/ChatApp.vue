@@ -9,7 +9,7 @@
               :key="chat.message"
               class="w-full"
               v-text="chat.message"
-              :class="chat.userId===state.currentUserId ? 'text-right': ''"
+              :class="chat.userId===currentUserId ? 'text-right': ''"
           >
           </div>
         </div>
@@ -28,21 +28,28 @@
 </template>
 
 <script>
-import {onMounted, reactive} from "vue";
-import firebase, {chatsRef} from "../utilities/firebase";
+import {computed, onMounted, reactive} from "vue";
+// import firebase, {chatsRef} from "../utilities/firebase";
+import {chatsRef} from "../utilities/firebase";
+import {useStore} from 'vuex';
 
 export default {
   setup() {
     const state = reactive({
       chats:[],
       message:"",
-      currentUserId:null
+      // currentUserId:null
     });
 
     const handleSubmit = () =>{
       const newChat =chatsRef.push()
+      // console.log({
+      //     userId: currentUserId.value,
+      //     message:state.message
+      //   })
       newChat.set({
-        userId: state.currentUserId,
+        // userId: state.currentUserId,
+        userId: currentUserId.value,
         message:state.message
       });
 
@@ -56,14 +63,17 @@ export default {
       // });
 
       chatsRef.on('child_added', (snapshot)=>{
-        state.currentUserId = firebase.auth().currentUser.uid;
+        // state.currentUserId = firebase.auth().currentUser.uid;
         state.chats.push({key:snapshot.key, ...snapshot.val()})
 
         console.log("child_added>>", snapshot.val(), snapshot.key)
       })
     })
 
-    return {state, handleSubmit}
+    const store = useStore();
+    const currentUserId = computed(()=>store.state.authUser.uid)
+
+    return {state, handleSubmit, currentUserId}
   }
 }
 </script>

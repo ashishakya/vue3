@@ -24,19 +24,23 @@ export default {
     return {
       showLoginModal: false,
       dob: '6/21/2021',
-      isLoggedIn: false,
-      authUser: {}
+      // isLoggedIn: false,
+      // authUser: {}
       // dob:null
     }
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.isLoggedIn = true
-        this.authUser = user
+        // this.isLoggedIn = true
+        // this.authUser = user
+        this.$store.commit('setLoggedInStatus', true)
+        this.$store.commit('setAuthUser', user)
       } else {
-        this.isLoggedIn = false
-        this.authUser = {}
+        // this.isLoggedIn = false
+        // this.authUser = {}
+        this.$store.commit('setLoggedInStatus', false)
+        this.$store.commit('setAuthUser', {})
       }
     });
   },
