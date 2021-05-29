@@ -5,7 +5,7 @@
         <router-link v-for="link in links" :key="link.to" :to="link.to" class="mx-2" v-text="link.title"/>
       </div>
       <div>
-        <button class="mx-2" @click="handleLogout" v-if="$root.isLoggedIn">LOGOUT</button>
+        <button class="mx-2" @click="handleLogout" v-if="isLoggedIn">LOGOUT</button>
         <button class="mx-2 content-end" @click="$emit('login')" v-else>LOGIN</button>
       </div>
     </div>
@@ -26,7 +26,13 @@ export default {
         {to: "calculator", title: "CALCULATOR"},
         {to: "reusable-modal", title: "REUSABLE MODAL"},
         {to: "chat-app", title: "CHAT APP"},
-      ]
+      ],
+      store: this.$store.state
+    }
+  },
+  computed:{
+    isLoggedIn(){
+      return this.$store.state.isLoggedIn
     }
   },
   methods: {
