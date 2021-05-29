@@ -2,7 +2,13 @@
   <nav class="w-full bg-gradient-to-r from-blue-800 to-blue-400 text-white px-4 py-2 font-bold">
     <div class="flex justify-between">
       <div>
-        <router-link v-for="link in links" :key="link.to" :to="link.to" class="mx-2" v-text="link.title"/>
+        <router-link
+            v-for="link in links"
+            :key="link.to"
+            :to="link.to"
+            class="mx-2"
+            v-text="link.title"
+        />
       </div>
       <div>
         <button class="mx-2" @click="handleLogout" v-if="isLoggedIn">LOGOUT</button>
@@ -48,5 +54,10 @@ export default {
 </script>
 
 <style scoped>
-
+.is-active{
+  background: white;
+  color: blue;
+  padding: 2px;
+  border-radius: 8px;
+}
 </style>

@@ -7,6 +7,7 @@ import Slider from "./Pages/Slider";
 import Calculator from "./Pages/Calculator";
 import ReusableModal from "./Pages/ReusableModal";
 import ChatApp from "./Pages/ChatApp";
+import store from "./store/index"
 
 const routes = [
     {
@@ -43,17 +44,37 @@ const routes = [
         path: '/reusable-modal',
         name: 'reusable-modal',
         component: ReusableModal,
+        // meta: { middleware: "auth" },
     },
     {
         path: '/chat-app',
         name: 'chat-app',
         component: ChatApp,
+        meta: { middleware: "auth" },
+        // beforeEnter: (to, from, next) => {
+        //     if(store.state.isLoggedIn){
+        //         next()
+        //     }else{
+        //         alert("Make sure you are logged in before using chat application.✌ ✌ ✌ ✌")
+        //         next({name:"home"});
+        //     }
+        // }
     },
 ];
 
 const router = createRouter({
     routes,
-    history:createWebHistory()
+    history:createWebHistory(),
+    linkExactActiveClass: 'is-active',
 });
+
+router.beforeEach((to, from, next) => {
+    if(to.meta.middleware){
+        const middleware = require("./middlewares/auth.js");
+        middleware.default(to, from, next, store);
+    }else{
+        next()
+    }
+})
 
 export default router
