@@ -4,7 +4,8 @@ const store = createStore({
     state () {
         return {
             isLoggedIn:false,
-            authUser:{}
+            authUser:{},
+            showLoginModal: false,
         }
     },
     mutations: {
@@ -13,7 +14,11 @@ const store = createStore({
         },
         setAuthUser(state, authUser){
             state.authUser = authUser
-        }
+        },
+        toggleLoginModal(state, toggleStatus){
+            state.showLoginModal=toggleStatus
+        },
+
     }
 })
 

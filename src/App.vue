@@ -1,5 +1,5 @@
 <template>
-  <AppHeader @login="showLoginModal=true"/>
+  <AppHeader @login="$store.commit('toggleLoginModal', true)"/>
   <div class="w-full flex">
     <router-view/>
     <!--    <CalenderPractise v-model="dob"/>-->
@@ -7,7 +7,7 @@
     <!--    <DCHeros/>-->
   </div>
   <teleport to="body">
-    <LoginModal v-if="showLoginModal" @close="showLoginModal=false"/>
+    <LoginModal v-if="$store.state.showLoginModal" @close="$store.commit('toggleLoginModal', false)"/>
   </teleport>
 </template>
 
@@ -22,7 +22,7 @@ import firebase from "./utilities/firebase";
 export default {
   data() {
     return {
-      showLoginModal: false,
+      // showLoginModal: false,
       dob: '6/21/2021',
       // isLoggedIn: false,
       // authUser: {}
