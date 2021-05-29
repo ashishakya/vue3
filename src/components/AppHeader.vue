@@ -32,6 +32,7 @@ export default {
         {to: "calculator", title: "CALCULATOR"},
         {to: "reusable-modal", title: "REUSABLE MODAL"},
         {to: "chat-app", title: "CHAT APP"},
+        {to: "users", title: "USER"},
       ],
       store: this.$store.state
     }
