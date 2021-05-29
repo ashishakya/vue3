@@ -1,22 +1,23 @@
 import {createRouter, createWebHistory} from "vue-router";
-// import DCHeros from "./Pages/DCHeros";
-// import Calender from "./Pages/Calender";
-// import Home from "./Pages/Home";
-// import Markdown from "./Pages/Markdown";
-// import Slider from "./Pages/Slider";
-// import Calculator from "./Pages/Calculator";
-// import ReusableModal from "./Pages/ReusableModal";
-// import ChatApp from "./Pages/ChatApp";
+// import DCHeros from "./pages/DCHeros";
+// import Calender from "./pages/Calender";
+// import Home from "./pages/Home";
+// import Markdown from "./pages/Markdown";
+// import Slider from "./pages/Slider";
+// import Calculator from "./pages/Calculator";
+// import ReusableModal from "./pages/ReusableModal";
+// import ChatApp from "./pages/ChatApp";
 
-const DCHeros = ()=>import(/* webpackChunkName: "DCHeros" */ "./Pages/DCHeros");
-const Calender = ()=>import(/* webpackChunkName: "Calender" */"./Pages/Calender");
-const Home = ()=>import(/* webpackChunkName: "Home" */"./Pages/Home");
-const Markdown = ()=>import(/* webpackChunkName: "Markdown" */"./Pages/Markdown");
-const Slider = ()=>import(/* webpackChunkName: "Slider" */"./Pages/Slider");
-const Calculator = ()=>import(/* webpackChunkName: "Calculator" */"./Pages/Calculator");
-const ReusableModal = ()=>import(/* webpackChunkName: "ReusableModal" */"./Pages/ReusableModal");
-const ChatApp = ()=>import(/* webpackChunkName: "ChatApp" */"./Pages/ChatApp");
+const DCHeros = ()=>import(/* webpackChunkName: "DCHeros" */ "./pages/DCHeros");
+const Calender = ()=>import(/* webpackChunkName: "Calender" */"./pages/Calender");
+const Home = ()=>import(/* webpackChunkName: "Home" */"./pages/Home");
+const Markdown = ()=>import(/* webpackChunkName: "Markdown" */"./pages/Markdown");
+const Slider = ()=>import(/* webpackChunkName: "Slider" */"./pages/Slider");
+const Calculator = ()=>import(/* webpackChunkName: "Calculator" */"./pages/Calculator");
+const ReusableModal = ()=>import(/* webpackChunkName: "ReusableModal" */"./pages/ReusableModal");
+const ChatApp = ()=>import(/* webpackChunkName: "ChatApp" */"./pages/ChatApp");
 import store from "./store/index"
+const  UserList = ()=> import(/* webpackChunkName: "UserList" */"./pages/User/UserList");
 
 const routes = [
     {
@@ -68,6 +69,12 @@ const routes = [
         //         next({name:"home"});
         //     }
         // }
+    },
+    {
+        path: '/users',
+        name: 'users',
+        component: UserList,
+        // meta: { middleware: "auth" },
     },
 ];
 
