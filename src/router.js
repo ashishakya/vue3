@@ -1,12 +1,21 @@
 import {createRouter, createWebHistory} from "vue-router";
-import DCHeros from "./Pages/DCHeros";
-import Calender from "./Pages/Calender";
-import Home from "./Pages/Home";
-import Markdown from "./Pages/Markdown";
-import Slider from "./Pages/Slider";
-import Calculator from "./Pages/Calculator";
-import ReusableModal from "./Pages/ReusableModal";
-import ChatApp from "./Pages/ChatApp";
+// import DCHeros from "./Pages/DCHeros";
+// import Calender from "./Pages/Calender";
+// import Home from "./Pages/Home";
+// import Markdown from "./Pages/Markdown";
+// import Slider from "./Pages/Slider";
+// import Calculator from "./Pages/Calculator";
+// import ReusableModal from "./Pages/ReusableModal";
+// import ChatApp from "./Pages/ChatApp";
+
+const DCHeros = ()=>import(/* webpackChunkName: "DCHeros" */ "./Pages/DCHeros");
+const Calender = ()=>import(/* webpackChunkName: "Calender" */"./Pages/Calender");
+const Home = ()=>import(/* webpackChunkName: "Home" */"./Pages/Home");
+const Markdown = ()=>import(/* webpackChunkName: "Markdown" */"./Pages/Markdown");
+const Slider = ()=>import(/* webpackChunkName: "Slider" */"./Pages/Slider");
+const Calculator = ()=>import(/* webpackChunkName: "Calculator" */"./Pages/Calculator");
+const ReusableModal = ()=>import(/* webpackChunkName: "ReusableModal" */"./Pages/ReusableModal");
+const ChatApp = ()=>import(/* webpackChunkName: "ChatApp" */"./Pages/ChatApp");
 import store from "./store/index"
 
 const routes = [
