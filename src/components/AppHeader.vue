@@ -33,6 +33,7 @@ export default {
         {to: "reusable-modal", title: "REUSABLE MODAL"},
         {to: "chat-app", title: "CHAT APP"},
         {to: "users", title: "USER"},
+        {to: "tensorflow", title: "TENSORFLOW"},
       ],
       store: this.$store.state
     }

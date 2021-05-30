@@ -18,6 +18,7 @@ const ReusableModal = ()=>import(/* webpackChunkName: "ReusableModal" */"./pages
 const ChatApp = ()=>import(/* webpackChunkName: "ChatApp" */"./pages/ChatApp");
 import store from "./store/index"
 const  UserList = ()=> import(/* webpackChunkName: "UserList" */"./pages/User/UserList");
+const  Tensorflow = ()=> import(/* webpackChunkName: "Tensorflow" */"./pages/Tensorflow");
 
 const routes = [
     {
@@ -74,7 +75,11 @@ const routes = [
         path: '/users',
         name: 'users',
         component: UserList,
-        // meta: { middleware: "auth" },
+    },
+    {
+        path: '/tensorflow',
+        name: 'tensorflow',
+        component: Tensorflow,
     },
 ];
 
