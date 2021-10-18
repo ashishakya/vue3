@@ -9,6 +9,7 @@
             class="mx-2"
             v-text="link.title"
         />
+        <button @click="handleReset">Reset the greeting</button>
       </div>
       <div>
         <button class="mx-2" @click="handleLogout" v-if="isLoggedIn">LOGOUT</button>
@@ -20,6 +21,7 @@
 
 <script>
 import firebase from "../utilities/firebase"
+import {UPDATE_GREET_MESSAGE} from "../store/mutation-types";
 
 export default {
   data() {
@@ -50,6 +52,9 @@ export default {
       }).catch((error) => {
         console.log(error)
       });
+    },
+    handleReset(){
+      this.$store.commit(UPDATE_GREET_MESSAGE, 'commit message reset')
     }
   }
 }
